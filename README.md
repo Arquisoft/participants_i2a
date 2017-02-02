@@ -3,11 +3,9 @@
 [![codecov](https://codecov.io/gh/Arquisoft/participants_i2a/branch/master/graph/badge.svg)](https://codecov.io/gh/Arquisoft/participants_i2a)
 
 
-# participants0
+# participants_i2a
 
 [![Join the chat at https://gitter.im/Arquisoft/participants_i2a](https://badges.gitter.im/Arquisoft/participants_i2a.svg)](https://gitter.im/Arquisoft/participants_i2a?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-[![Join the chat at https://gitter.im/Arquisoft/participants0](https://badges.gitter.im/Arquisoft/participants0.svg)](https://gitter.im/Arquisoft/participants0?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Skeleton of participants module
 
