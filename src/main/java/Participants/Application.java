@@ -1,4 +1,4 @@
-package hello;
+package Participants;
 
 
 import org.springframework.boot.SpringApplication;
