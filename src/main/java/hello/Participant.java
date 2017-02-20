@@ -2,6 +2,7 @@ package hello;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Objects;
 
 /**
  * Created by yy on 20-Feb-17.
@@ -36,6 +37,14 @@ public class Participant {
         this.nationality = nationality;
         this.nationalId = nationalId;
         this.password=password;
+    }
+
+    protected String getPassword() {
+        return password;
+    }
+
+    protected void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFirstName() {
@@ -116,29 +125,15 @@ public class Participant {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Participant that = (Participant) o;
-
-        if (!id.equals(that.id)) return false;
-        if (!firstName.equals(that.firstName)) return false;
-        if (!lastName.equals(that.lastName)) return false;
-        if (!email.equals(that.email)) return false;
-        if (dateOfBirth != null ? !dateOfBirth.equals(that.dateOfBirth) : that.dateOfBirth != null) return false;
-        if (address != null ? !address.equals(that.address) : that.address != null) return false;
-        if (nationality != null ? !nationality.equals(that.nationality) : that.nationality != null) return false;
-        return nationalId != null ? nationalId.equals(that.nationalId) : that.nationalId == null;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(firstName, that.firstName) &&
+                Objects.equals(lastName, that.lastName) &&
+                Objects.equals(email, that.email);
     }
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + firstName.hashCode();
-        result = 31 * result + lastName.hashCode();
-        result = 31 * result + email.hashCode();
-        result = 31 * result + (dateOfBirth != null ? dateOfBirth.hashCode() : 0);
-        result = 31 * result + (address != null ? address.hashCode() : 0);
-        result = 31 * result + (nationality != null ? nationality.hashCode() : 0);
-        result = 31 * result + (nationalId != null ? nationalId.hashCode() : 0);
-        return result;
+        return Objects.hash(id, firstName, lastName, email);
     }
 }
