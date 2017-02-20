@@ -10,7 +10,7 @@ public class MainController {
 
     @RequestMapping("/")
     public String landing(Model model) {
-    	model.addAttribute("nombre", "Amigo");
+    	model.addAttribute("nombre", "Friend!");
         return "saludo";
     }
     
