@@ -1,4 +1,4 @@
-package hello;
+package Participants;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
@@ -37,14 +37,14 @@ public class MainControllerTest {
 
 	@Test
 	public void getLanding() throws Exception {
-		String userURI = base.toString() + "/user";  
+		String userURI = base.toString() + "/getParticipantInfo";
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
 		assertThat(response.getBody(), containsString("Hola"));
 	}
 	
 	@Test
 	public void getUser() throws Exception {
-		String userURI = base.toString() + "/user";  
+		String userURI = base.toString() + "/getParticipantInfo";
 		ResponseEntity<String> response = template.getForEntity(userURI, String.class);
 		UserInfo expected = new UserInfo("pepe",0);
 	}

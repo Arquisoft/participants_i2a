@@ -1,4 +1,4 @@
-package hello;
+package Participants;
 
 
 import org.slf4j.Logger;
