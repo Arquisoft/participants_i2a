@@ -37,6 +37,8 @@ public class Application {
 
             dao.save(pepe);
 
+            log.info(dao.getUser("pepe@pepe.com","pepe").toString());
+
         };
     }
 }
