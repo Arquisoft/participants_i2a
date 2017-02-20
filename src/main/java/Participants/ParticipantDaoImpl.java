@@ -22,11 +22,17 @@ public class ParticipantDaoImpl {
     }
 
     public List<Participant> getAll() {
-        return em.createQuery("SELECT p FROM Participants p", Participant.class).getResultList();
+        return em.createQuery("SELECT p FROM Participant p", Participant.class).getResultList();
     }
 
     public Participant getUser(String email, String password){
-        return em.createQuery("SELECT p FROM Participants p ", Participant.class).getSingleResult();
+        return em.createQuery("SELECT p FROM Participant p where p.email= :em and p.password= :ps" , Participant.class)
+                .setParameter("em",email).setParameter("ps",password).getSingleResult();
+    }
+
+    public Long update(Participant person) {
+        em.merge(person);
+        return person.getId();
     }
 
 }

@@ -9,7 +9,6 @@ import java.util.Objects;
  */
 
 @Entity
-@Table(name="participants")
 public class Participant {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)

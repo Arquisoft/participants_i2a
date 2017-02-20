@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class APIController {
 
     private static final Logger LOG = LoggerFactory.getLogger(APIController.class);
-
+/*
     @RequestMapping(method = RequestMethod.POST, value = "/user")
     public ResponseEntity<UserInfo> getParticipantInfo(
             @RequestBody  EmailPasswordInfo credentials) {
@@ -30,5 +30,5 @@ public class APIController {
         else
             return new ResponseEntity<UserInfo>(HttpStatus.NOT_FOUND);
     }
-
+*/
 }

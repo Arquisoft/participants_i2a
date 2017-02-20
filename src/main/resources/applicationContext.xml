@@ -12,7 +12,7 @@
     <tx:annotation-driven />
     <context:annotation-config />
 
-    <bean id="personDao" class="Participants.ParticipantDaoImpl" />
+    <bean id="participantDao" class="Participants.ParticipantDaoImpl" />
 
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
