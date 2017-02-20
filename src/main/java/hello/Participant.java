@@ -22,9 +22,7 @@ public class Participant {
     private String nationalId;
     private String password;
 
-    private String getPassword() {
-        return password;
-    }
+
 
     protected Participant(){}
 
