@@ -1,5 +1,6 @@
-package hello;
+package Participants;
 
+import Participants.Participant;
 import org.springframework.data.repository.CrudRepository;
 
 /**

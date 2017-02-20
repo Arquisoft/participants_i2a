@@ -1,4 +1,4 @@
-package hello;
+package Participants;
 
 import javax.persistence.*;
 import java.sql.Date;
