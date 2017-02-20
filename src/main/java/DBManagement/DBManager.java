@@ -1,14 +1,15 @@
 package DBManagement;
 
 import Participants.EmailPasswordInfo;
-import Participants.UserInfo;
+import Participants.Participant;
+import Participants.ParticipantRepository;
 
 /**
  * Created by yy on 15-Feb-17.
  */
 public class DBManager {
 
-    public UserInfo getParticipant(EmailPasswordInfo credentials){
-        return new UserInfo("Pepe",25);
+    public Participant getParticipant(ParticipantRepository rep, EmailPasswordInfo credentials){
+        return rep.findParticipantByEmailAndPassword(credentials.getEmail(),credentials.getPassword());
     }
 }
