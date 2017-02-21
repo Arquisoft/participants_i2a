@@ -28,11 +28,11 @@ public class WebController {
         return "login";
     }
 
-//    @PostMapping("/login")
-//    public ResponseEntity<Participant> updateInfo(Participant participant){
-//        Participant participant1 = repository.save(participant);
-//        return new ResponseEntity<Participant>(participant1, HttpStatus.OK);
-//    }
+    @PostMapping("/update")
+    public String updateInfo(Participant participant,Model model){
+        model.addAttribute("participant",repository.save(participant));
+        return "update";
+    }
 
     @PostMapping("/userInfo")
     public String showData(Credentials credentials,Model model){

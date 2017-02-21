@@ -1,5 +1,7 @@
 package Participants;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Objects;
@@ -10,11 +12,12 @@ import java.util.Objects;
 
 @Entity
 public class Participant {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy= GenerationType.AUTO)
+//    private Long id;
     private String firstName;
     private String lastName;
+    @Id
     private String email;
     private Date dateOfBirth;
     private String address;
@@ -102,14 +105,13 @@ public class Participant {
         this.nationalId = nationalId;
     }
 
-    protected Long getId() {
-        return id;
-    }
+//    protected Long getId() {
+//        return id;
+//    }
 
     @Override
     public String toString() {
         return "Participant{" +
-                "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
@@ -125,14 +127,13 @@ public class Participant {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Participant that = (Participant) o;
-        return Objects.equals(id, that.id) &&
-                Objects.equals(firstName, that.firstName) &&
+        return  Objects.equals(firstName, that.firstName) &&
                 Objects.equals(lastName, that.lastName) &&
                 Objects.equals(email, that.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, email);
+        return Objects.hash(firstName, lastName, email);
     }
 }

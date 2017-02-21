@@ -16,10 +16,10 @@ public class ParticipantDaoImpl {
     @PersistenceContext
     private EntityManager em;
 
-    public Long save(Participant person) {
-        em.persist(person);
-        return person.getId();
-    }
+//    public Long save(Participant person) {
+//        em.persist(person);
+//        return person.getId();
+//    }
 
     public List<Participant> getAll() {
         return em.createQuery("SELECT p FROM Participant p", Participant.class).getResultList();
@@ -30,9 +30,9 @@ public class ParticipantDaoImpl {
                 .setParameter("em",email).setParameter("ps",password).getSingleResult();
     }
 
-    public Long update(Participant person) {
-        em.merge(person);
-        return person.getId();
-    }
+//    public Long update(Participant person) {
+//        em.merge(person);
+//        return person.getId();
+//    }
 
 }
