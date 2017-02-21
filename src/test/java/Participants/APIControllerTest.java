@@ -28,7 +28,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
 @IntegrationTest({"server.port=0"})
-public class MainControllerTest {
+public class APIControllerTest {
 
 	private static final Logger LOG = LoggerFactory.getLogger(APIController.class);
 
