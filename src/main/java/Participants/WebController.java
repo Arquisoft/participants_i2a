@@ -24,13 +24,21 @@ public class WebController {
 
     @GetMapping("/login")
     public String loginForm(Model model){
-        model.addAttribute("participant", new Participant());
+        model.addAttribute("credentials", new Credentials());
         return "login";
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<Participant> updateInfo(Participant participant){
-        Participant participant1 = repository.save(participant);
-        return new ResponseEntity<Participant>(participant, HttpStatus.OK);
+//    @PostMapping("/login")
+//    public ResponseEntity<Participant> updateInfo(Participant participant){
+//        Participant participant1 = repository.save(participant);
+//        return new ResponseEntity<Participant>(participant1, HttpStatus.OK);
+//    }
+
+    @PostMapping("/userInfo")
+    public String showData(Credentials credentials,Model model){
+        Participant participant = repository.findParticipantByEmailAndPassword(
+                credentials.getEmail(),credentials.getPassword());
+        model.addAttribute("participant",participant);
+        return "update";
     }
 }
