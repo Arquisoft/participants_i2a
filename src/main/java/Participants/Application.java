@@ -31,14 +31,6 @@ public class Application {
                     ("pepe@pepe.com", "pepe");
             log.info(participant.toString());
 
-//            ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-//                    "applicationContext.xml");
-//            ParticipantDaoImpl dao = (ParticipantDaoImpl) context.getBean("participantDao");
-//
-//            dao.save(pepe);
-//
-//            log.info(dao.getUser("pepe@pepe.com","pepe").toString());
-
         };
     }
 }
