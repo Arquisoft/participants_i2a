@@ -1,13 +1,20 @@
 package Participants;
 
 import static org.hamcrest.Matchers.containsString;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 import java.net.URL;
+import java.sql.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -23,6 +30,8 @@ import org.springframework.web.client.RestTemplate;
 @IntegrationTest({"server.port=0"})
 public class MainControllerTest {
 
+	private static final Logger LOG = LoggerFactory.getLogger(APIController.class);
+
     @Value("${local.server.port}")
     private int port;
 
@@ -31,22 +40,33 @@ public class MainControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-//		this.base = new URL("http://localhost:" + port + "/");
-//		template = new TestRestTemplate();
+		this.base = new URL("http://localhost:" + port + "/");
+		template = new TestRestTemplate();
 	}
 
 	@Test
 	public void getLanding() throws Exception {
-//		String userURI = base.toString() + "/getParticipantInfo";
+//		String userURI = base.toString() + "/user";
 //		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
 //		assertThat(response.getBody(), containsString("Hola"));
 	}
 	
 	@Test
-	public void getUser() throws Exception {
-//		String userURI = base.toString() + "/getParticipantInfo";
-//		ResponseEntity<String> response = template.getForEntity(userURI, String.class);
-//		UserInfo expected = new UserInfo("pepe",0);
+	public void getParticipant() throws Exception {
+		String userURI = base.toString() + "/user";
+		Credentials credentials=new Credentials("pepe@pepe.com","pepe");
+		Participant expected = new Participant("pepe", "pepe", "pepe@pepe.com", new Date(123),
+				"pepe", "pepe", "pepe", "pepe");
+		Participant actual=template.postForObject(userURI,credentials,Participant.class,"");
+		assertEquals(expected,actual);
+	}
+
+	@Test
+	public void getNonexistantParticipant() throws Exception {
+		String userURI = base.toString() + "/user";
+		Credentials credentials=new Credentials("kek@kek.com","kek");
+		Participant actual=template.postForObject(userURI,credentials,Participant.class,"");
+		assertNull(actual);
 	}
 
 }
