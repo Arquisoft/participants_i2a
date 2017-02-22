@@ -15,8 +15,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Controller
 public class WebController extends WebMvcConfigurerAdapter {
 
-    private static final Logger LOG = LoggerFactory.getLogger(APIController.class);
-
     @Autowired
     private ParticipantRepository repository;
 

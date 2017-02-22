@@ -25,8 +25,6 @@ import org.springframework.web.client.RestTemplate;
 @IntegrationTest({"server.port=0"})
 public class APIControllerTest {
 
-	private static final Logger LOG = LoggerFactory.getLogger(APIController.class);
-
     @Value("${local.server.port}")
     private int port;
 
