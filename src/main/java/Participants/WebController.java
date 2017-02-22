@@ -3,19 +3,17 @@ package Participants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  * Created by Dax on 21-Feb-17.
  */
 @Controller
-public class WebController {
+public class WebController extends WebMvcConfigurerAdapter {
 
     private static final Logger LOG = LoggerFactory.getLogger(APIController.class);
 
@@ -40,5 +38,12 @@ public class WebController {
                 credentials.getEmail(),credentials.getPassword());
         model.addAttribute("participant",participant);
         return "update";
+    }
+
+    @PostMapping("/changePassword")
+    public String showData(Participant participant,Model model){
+        model.addAttribute("participant",repository
+                .findParticipantByEmailAndPassword(participant.getEmail(),participant.getPassword()));
+        return "changePassword";
     }
 }

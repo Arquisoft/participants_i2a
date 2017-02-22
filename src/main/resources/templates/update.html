@@ -1,19 +1,30 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>Update your info</title>
 </head>
     <body>
     <h1>Form</h1>
         <form action="#" th:action="@{/update}" th:object="${participant}" method="post">
+            <p>Email: <input type="email" th:field="*{email}" /></p>
             <p>FirstName: <input type="text" th:field="*{firstName}" /></p>
             <p>LastName: <input type="text" th:field="*{lastName}" /></p>
             <p>Date of birth: <input type="date" th:field="*{dateOfBirth}" /></p>
             <p>Nationality: <input type="text" th:field="*{nationality}" /></p>
             <p>Address: <input type="text" th:field="*{address}" /></p>
             <p>NIF/NIE: <input type="text" th:field="*{nationalId}" /></p>
-            <p>Email: <input type="text" th:field="*{email}" /></p>
             <p><input type="submit" value="Update" /> <input type="reset" value="Reset" /></p>
+        </form>
+        <form action="#" th:action="@{/changePassword}" th:object="${participant}" method="post">
+                <input type="hidden" th:field="*{password}"/>
+                <input type="hidden" th:field="*{email}"/>
+                <input type="hidden" th:field="*{firstName}" />
+                <input type="hidden" th:field="*{lastName}"/>
+                <input type="hidden" th:field="*{dateOfBirth}" />
+                <input type="hidden" th:field="*{nationality}"/>
+                <input type="hidden" th:field="*{address}" />
+                <input type="hidden" th:field="*{nationalId}"/>
+                <input type="submit" value="change password"/>
         </form>
     </body>
 </html>
