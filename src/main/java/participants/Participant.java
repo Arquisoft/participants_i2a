@@ -1,6 +1,4 @@
-package Participants;
-
-import org.springframework.stereotype.Component;
+package participants;
 
 import javax.persistence.*;
 import java.sql.Date;

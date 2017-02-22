@@ -1,4 +1,4 @@
-package Participants;
+package participants;
 
 /**
  * Created by yy on 15-Feb-17.
